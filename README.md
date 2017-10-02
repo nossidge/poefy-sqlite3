@@ -1,4 +1,4 @@
-# poefy-pg
+# poefy-sqlite3
 
 by Paul Thompson - nossidge@gmail.com
 
