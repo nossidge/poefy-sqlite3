@@ -231,9 +231,9 @@ module Poefy
           @sproc[key] = db.prepare value
         end
       rescue
-        handle_error \
-          "ERROR: Database table structure is invalid.\n" +
-          "       Please manually DROP the corrupt table and recreate it."
+        msg = "ERROR: Database table structure is invalid." +
+            "\n       Please manually DROP the corrupt table and recreate it."
+        raise Poefy::StructureInvalid.new(msg)
       end
 
       # Find rhymes and counts greater than a certain length.
