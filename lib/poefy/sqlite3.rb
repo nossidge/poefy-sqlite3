@@ -79,14 +79,14 @@ module Poefy
 
     # The number of lines in the table.
     def count
-      return 0 if not exists?
+      return 0 unless exist?
       sql = "SELECT COUNT(*) AS num FROM #{table};"
       execute!(sql).first['num'].to_i
     end
 
     # See if the database file exists or not.
-    def exists?
-      File.exists?(db_file)
+    def exist?
+      File.exist?(db_file)
     end
 
     # Get all rhyming lines for the word.
@@ -119,7 +119,7 @@ module Poefy
 
       # Create a new database.
       def new_connection
-        File.delete(db_file) if File.exists?(db_file)
+        File.delete(db_file) if File.exist?(db_file)
         @db = SQLite3::Database.new(db_file)
         @db.results_as_hash = true
       end

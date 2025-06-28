@@ -11,7 +11,7 @@ describe Poefy::Poem, "-- SQLite" do
     dbs = %w{spec_test_tiny spec_shakespeare spec_whitman}
     dbs.each do |db_name|
       db_file = "#{@root}/data/#{db_name}.db"
-      File.delete(db_file) if File.exists?(db_file)
+      File.delete(db_file) if File.exist?(db_file)
     end
   end
 
@@ -19,7 +19,7 @@ describe Poefy::Poem, "-- SQLite" do
     dbs = %w{spec_test_tiny spec_shakespeare spec_whitman}
     dbs.each do |db_name|
       db_file = "#{@root}/data/#{db_name}.db"
-      File.delete(db_file) if File.exists?(db_file)
+      File.delete(db_file) if File.exist?(db_file)
     end
   end
 
@@ -50,8 +50,8 @@ describe Poefy::Poem, "-- SQLite" do
 
       it "Use array of strings" do
         @poefy.make_database! text_array
-        expect(@poefy.corpus.exists?).to be true
-        expect(File.exists?(db_file)).to be true
+        expect(@poefy.corpus.exist?).to be true
+        expect(File.exist?(db_file)).to be true
         expect(@poefy.corpus.count).to be row_count
         poem = @poefy.poem({ rhyme: 'aabb' })
         expect(poem.count).to be 4
@@ -59,8 +59,8 @@ describe Poefy::Poem, "-- SQLite" do
 
       it "Use one long newline delimited string" do
         @poefy.make_database! text_string
-        expect(@poefy.corpus.exists?).to be true
-        expect(File.exists?(db_file)).to be true
+        expect(@poefy.corpus.exist?).to be true
+        expect(File.exist?(db_file)).to be true
         expect(@poefy.corpus.count).to be row_count
         poem = @poefy.poem({ rhyme: 'aabb' })
         expect(poem.count).to be 4
@@ -75,8 +75,8 @@ describe Poefy::Poem, "-- SQLite" do
         tmp.close
 
         @poefy.make_database! text_path
-        expect(@poefy.corpus.exists?).to be true
-        expect(File.exists?(db_file)).to be true
+        expect(@poefy.corpus.exist?).to be true
+        expect(File.exist?(db_file)).to be true
         expect(@poefy.corpus.count).to be row_count
         poem = @poefy.poem({ rhyme: 'aabb' })
         expect(poem.count).to be 4
@@ -308,8 +308,8 @@ describe Poefy::Poem, "-- SQLite" do
         db_file = "#{@root}/data/#{file_db}"
         input = `sed '/[a-z]/!d' #{@root}/data/#{file_txt}`
         @poefy.make_database input
-        expect(@poefy.corpus.exists?).to be true
-        expect(File.exists?(db_file)).to be true
+        expect(@poefy.corpus.exist?).to be true
+        expect(File.exist?(db_file)).to be true
       end
     end
 
@@ -414,8 +414,8 @@ describe Poefy::Poem, "-- SQLite" do
         db_file = "#{@root}/data/#{file_db}"
         input = `sed '/[a-z]/!d' #{@root}/data/#{file_txt}`
         @poefy.make_database input
-        expect(@poefy.corpus.exists?).to be true
-        expect(File.exists?(db_file)).to be true
+        expect(@poefy.corpus.exist?).to be true
+        expect(File.exist?(db_file)).to be true
       end
     end
 
