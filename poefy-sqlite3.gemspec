@@ -23,11 +23,11 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 3.2.0'
 
-  s.add_development_dependency('bundler',     '~> 1.13')
+  s.add_development_dependency('bundler',     '~> 2.6')
   s.add_development_dependency('rake',        '~> 10.0')
   s.add_development_dependency('rspec',       '~> 3.0')
   s.add_development_dependency('ruby_rhymes', '~> 0.1')
 
-  s.add_runtime_dependency('poefy',   '~> 1.1', '>= 1.1.0')
-  s.add_runtime_dependency('sqlite3', '~> 1.3', '>= 1.3.13')
+  s.add_runtime_dependency('poefy',   '~> 2.0', '>= 2.0.1')
+  s.add_runtime_dependency('sqlite3', '~> 2.7', '>= 2.7.1')
 end
